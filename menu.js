@@ -19,3 +19,7 @@ const btnMenu = document.getElementById("btn-menu");
         btnMenu.addEventListener("click", abrirMenu);  // Abre o menu ao clicar no ícone
         btnFechar.addEventListener("click", fecharMenu);  // Fecha o menu ao clicar no "X"
         overlayMenu.addEventListener("click", fecharMenu);  // Fecha o menu ao clicar na sobreposição
+
+
+        
+

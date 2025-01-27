@@ -1,0 +1,231 @@
+/* ESTILO GERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f2efeb;
+    height: 100vh;
+}
+
+.interface {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.btn-contato button {
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #f2efeb;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+h2.titulo {
+    color: #000;
+    font-size: 38px;
+    text-align: center;
+}
+
+h2.titulo span {
+    color: #050a30;
+}
+
+button:hover,
+form .btn-enviar input:hover {
+    box-shadow: 0px 0px 8px white;
+    transform: scale(1.05);
+}
+
+/* ESTILO DO CABEÇALHO */
+header {
+    padding: 40px 4%;
+    background-color: #050a30;
+}
+
+header>.interface {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header a {
+    color: #f2efeb;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+}
+
+header nav.menu-desktop a:hover {
+    color: #fff;
+    transform: scale(1.05);
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav.menu-desktop ul li {
+    display: inline-block;
+    padding: 0 40px;
+}
+
+/* ESTILO DO MENU MOBILE */
+
+.menu-mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #050a30;
+    transform: translateX(100%); /* Inicialmente fora da tela */
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    color: white;
+    padding-top: 60px;
+}
+
+.menu-mobile nav ul {
+    list-style: none;
+    padding: 0;
+    padding-left: 20px;
+}
+
+.menu-mobile nav ul li {
+    margin: 20px 0;
+}
+
+.menu-mobile nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* Overlay de fundo */
+.overlay-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; /* Inicialmente invisível */
+    z-index: 999;
+}
+
+/* Botões */
+.btn-abrir-menu i, .btn-fechar i {
+    font-size: 30px;
+    color: #f2efeb;
+}
+
+/* Media Query para telas pequenas (mobile) */
+@media screen and (max-width: 768px) {
+    /* Mostrar o ícone do menu mobile em telas pequenas */
+    .btn-abrir-menu {
+        display: block;  /* Ícone visível apenas em telas pequenas */
+    }
+
+    /* Esconder o menu desktop em telas pequenas */
+    .menu-desktop {
+        display: none;
+    }
+
+    /* Exibir a sobreposição em telas pequenas */
+    .overlay-menu {
+        display: block;
+    }
+}
+
+/* Media Query para telas grandes (desktop) */
+@media screen and (min-width: 769px) {
+    /* Exibir o menu desktop em telas grandes */
+    .menu-desktop {
+        display: block;
+    }
+
+    /* Esconder o menu mobile em telas grandes */
+    .menu-mobile {
+        display: none;
+    }
+
+    /* Esconder a sobreposição em telas grandes */
+    .overlay-menu {
+        display: none;
+    }
+
+    /* Esconder o ícone do menu mobile em telas grandes */
+    .btn-abrir-menu {
+        display: none;
+    }
+}
+
+/* Estilo para Main */
+main {
+    display: flex;
+    flex-wrap: wrap;  /* Permite que as divs quebrem linha quando necessário */
+    justify-content: space-between; /* Espaça as divs igualmente */
+    gap: 20px; /* Espaçamento entre as divs */
+    padding: 20px; /* Espaçamento interno */
+    height: calc(100vh - 100px); /* Ajusta a altura para ocupar a tela inteira, considerando o header */
+}
+
+/* Estilo das divs dentro da main */
+.div1, .div2 {
+    flex: 1 1 48%; /* Cada div ocupa 48% da largura da tela, com um pequeno espaço entre elas */
+    min-height: 300px; /* Altura mínima para cada div */
+    padding: 20px;
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.div2 {
+    background-color: #d0d0d0;
+}
+
+.div1 h1, .div2 h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.div1 p, .div2 p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column; /* Em telas pequenas, as divs ficam empilhadas verticalmente */
+        height: auto; /* Ajuste para a altura não ficar fixa */
+    }
+
+    .div1, .div2 {
+        flex: 1 0 100%; /* As divs ocupam 100% da largura */
+        margin-bottom: 20px; /* Espaço entre as divs */
+    }
+
+    /* Ajuste no texto */
+    .div1 h1, .div2 h1 {
+        font-size: 20px;
+    }
+
+    .div1 p, .div2 p {
+        font-size: 14px;
+    }
+}
