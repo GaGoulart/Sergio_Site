@@ -171,7 +171,7 @@ header nav.menu-desktop ul li {
     }
 }
 
-/* Estilo para Main */
+/* Container principal */
 main {
     display: flex;
     flex-wrap: wrap;  /* Permite que as divs quebrem linha quando necessário */
@@ -181,32 +181,66 @@ main {
     height: calc(100vh - 100px); /* Ajusta a altura para ocupar a tela inteira, considerando o header */
 }
 
-/* Estilo das divs dentro da main */
+/* Container para alinhar as divs lado a lado */
+.container {
+    display: flex; /* Garante que as divs fiquem lado a lado */
+    justify-content: space-between; /* Dá um pequeno espaço entre as divs */
+    gap: 20px; /* Adiciona um espaço de 20px entre as divs */
+    flex-wrap: wrap; /* Permite que as divs quebrem para a linha seguinte se necessário */
+}
+
+/* Estilos para .div1 e .div2 */
 .div1, .div2 {
-    flex: 1 1 48%; /* Cada div ocupa 48% da largura da tela, com um pequeno espaço entre elas */
-    min-height: 300px; /* Altura mínima para cada div */
-    padding: 20px;
-    background-color: #e0e0e0;
-    display: flex;
+    flex: 1 1 48%; /* Cada div ocupa 48% da largura da tela */
+    min-height: 150px; /* Altura mínima reduzida para 150px */
+    padding: 10px; /* Padding reduzido para economizar altura */
+    box-sizing: border-box;
+    display: flex; /* Flexbox para alinhar o conteúdo dentro das divs */
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
+}
+
+/* A cor de fundo de .div1 e .div2 */
+.div1 {
+    background-color: #e0e0e0;
 }
 
 .div2 {
     background-color: #d0d0d0;
 }
 
+/* Flexbox para dividir imagem e texto dentro de .div1 e .div2 */
+.div1 .conteudo, .div2 .conteudo {
+    display: flex; /* Organiza a imagem e o texto lado a lado */
+    width: 100%;
+    flex-wrap: wrap; /* Permite que o conteúdo quebre linha, se necessário */
+}
+
+.div1 .imagem, .div2 .imagem {
+    flex: 1; /* A imagem ocupa metade da largura */
+    object-fit: cover; /* A imagem vai cobrir o espaço sem distorcer */
+    width: 50%; /* Define que a imagem ocupa 50% da div */
+    max-height: 100%; /* Limita a altura da imagem ao tamanho da div */
+}
+
+.div1 .texto, .div2 .texto {
+    flex: 1; /* O texto ocupa o restante do espaço */
+    padding: 10px; /* Padding reduzido */
+    width: 50%; /* Garante que o texto ocupe a outra metade */
+}
+
+/* Estilos de texto */
 .div1 h1, .div2 h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 20px; /* Fonte menor para reduzir o tamanho vertical */
+    margin-bottom: 5px; /* Menos margem para economizar espaço */
     color: #333;
 }
 
 .div1 p, .div2 p {
-    font-size: 16px;
+    font-size: 14px; /* Fonte menor para reduzir o tamanho vertical */
     color: #555;
 }
+
 
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
