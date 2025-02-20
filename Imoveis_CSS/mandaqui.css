@@ -81,7 +81,6 @@ header nav.menu-desktop ul li {
 }
 
 /* ESTILO DO MENU MOBILE */
-
 .menu-mobile {
     position: fixed;
     top: 0;
@@ -89,7 +88,7 @@ header nav.menu-desktop ul li {
     width: 250px;
     height: 100%;
     background-color: #050a30;
-    transform: translateX(100%); /* Inicialmente fora da tela */
+    transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
     z-index: 1000;
     color: white;
@@ -120,7 +119,7 @@ header nav.menu-desktop ul li {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    display: none; /* Inicialmente invisível */
+    display: none;
     z-index: 999;
 }
 
@@ -130,19 +129,98 @@ header nav.menu-desktop ul li {
     color: #f2efeb;
 }
 
-/* Media Query para telas pequenas (mobile) */
-@media screen and (max-width: 768px) {
-    /* Mostrar o ícone do menu mobile em telas pequenas */
-    .btn-abrir-menu {
-        display: block;  /* Ícone visível apenas em telas pequenas */
+/* ESTILO DA GALERIA */
+.gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.gallery-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.gallery img {
+    width: 100%;
+    max-width: 800px;
+    height: 500px; /* Tamanho fixo para manter todas iguais */
+    object-fit: cover; /* Mantém a proporção sem distorcer */
+    border-radius: 10px;
+}
+
+/* Botões de navegação */
+.nav-btn {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, transform 0.3s ease; /* Transição suave */
+}
+
+#prev {
+    left: 10px;
+}
+
+#next {
+    right: 10px;
+}
+
+.nav-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* 🔹 Responsividade para telas menores */
+@media screen and (max-width: 600px) {
+    .gallery-container {
+        max-width: 90%;
     }
 
-    /* Esconder o menu desktop em telas pequenas */
+    .gallery img {
+        height: 250px; /* Tamanho menor para telas pequenas */
+    }
+
+    .nav-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    #prev {
+        left: 5px;
+    }
+
+    #next {
+        right: 5px;
+    }
+}
+
+
+/* Media Query para telas pequenas (mobile) */
+@media screen and (max-width: 768px) {
+    .btn-abrir-menu {
+        display: block;
+    }
     .menu-desktop {
         display: none;
     }
-
-    /* Exibir a sobreposição em telas pequenas */
     .overlay-menu {
         display: block;
     }
@@ -150,124 +228,104 @@ header nav.menu-desktop ul li {
 
 /* Media Query para telas grandes (desktop) */
 @media screen and (min-width: 769px) {
-    /* Exibir o menu desktop em telas grandes */
     .menu-desktop {
         display: block;
     }
-
-    /* Esconder o menu mobile em telas grandes */
     .menu-mobile {
         display: none;
     }
-
-    /* Esconder a sobreposição em telas grandes */
     .overlay-menu {
         display: none;
     }
-
-    /* Esconder o ícone do menu mobile em telas grandes */
     .btn-abrir-menu {
         display: none;
     }
 }
 
-/* Container principal */
-main {
+/*Main Sobre o imovel*/
+
+.property {
     display: flex;
-    flex-wrap: wrap;  
-    justify-content: space-between; 
-    gap: 20px; 
-    padding: 20px; 
-    height: calc(100vh - 100px); 
-}
-
-/* Container para alinhar as divs lado a lado */
-.container {
-    display: flex; 
-    justify-content: space-between;
-    gap: 20px; 
-    flex-wrap: wrap; 
-}
-
-/* Estilos para .div1 e .div2 */
-.div1, .div2 {
-    flex: 1 1 48%; 
-    min-height: 150px; 
-    padding: 10px; 
-    box-sizing: border-box;
-    display: flex; 
-    justify-content: center;
     align-items: center;
-    
+    justify-content: space-between;
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-a{
-    text-decoration: none;
+.property-info {
+    max-width: 450px;
+    padding: 20px;
 }
 
-/* A cor de fundo de .div1 e .div2 */
-.div1 {
-    background-color: #e0e0e0;
+.property-info h2 {
+    color: #050a30;
+    margin-bottom: 10px;
 }
 
-.div2 {
-    background-color: #d0d0d0;
+.property-features {
+    list-style: none;
+    padding: 0;
 }
 
-/* Flexbox para dividir imagem e texto dentro de .div1 e .div2 */
-.div1 .conteudo, .div2 .conteudo {
-    display: flex; 
-    width: 100%;
-    flex-wrap: wrap;
+.property-features li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 18px;
 }
 
-.div1 .imagem, .div2 .imagem {
-    flex: 1; 
-    object-fit: cover; 
-    width: 50%; 
-    max-height: 100%; 
+.property-features i {
+    margin-right: 10px;
+    font-size: 22px;
+    color: #050a30;
 }
 
-.div1 .texto, .div2 .texto {
-    flex: 1; 
-    padding: 10px; 
-    width: 50%; 
+/* Botão Ver Mais */
+#show-more {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #050a30;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-/* Estilos de texto */
-.div1 h1, .div2 h1 {
-    font-size: 20px; 
-    margin-bottom: 5px; 
-    color: #333;
+#show-more:hover {
+    background-color: #0a1a50;
 }
 
-.div1 p, .div2 p {
-    font-size: 14px; 
-    color: #555;
+/* Texto escondido inicialmente */
+#extra-info {
+    margin-top: 10px;
+    display: none;
 }
 
+.hidden {
+    display: none;
+}
 
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
-    main {
-        flex-direction: column; /* Em telas pequenas, as divs ficam empilhadas verticalmente */
-        height: auto; /* Ajuste para a altura não ficar fixa */
+/* 🔹 Responsividade para telas menores */
+@media screen and (max-width: 768px) {
+    .property {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .div1, .div2 {
-        flex: 1 0 100%; /* As divs ocupam 100% da largura */
-        margin-bottom: 20px; /* Espaço entre as divs */
+    .property-info {
+        padding: 10px;
     }
 
-    /* Ajuste no texto */
-    .div1 h1, .div2 h1 {
-        font-size: 20px;
-    }
-
-    .div1 p, .div2 p {
-        font-size: 14px;
+    .property-features li {
+        justify-content: center;
     }
 }
+
 /* ESTILO DO RODAPÉ */
 
 footer {
