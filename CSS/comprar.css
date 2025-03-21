@@ -50,7 +50,7 @@ form .btn-enviar input:hover {
 /* ESTILO DO CABEÇALHO */
 header {
     padding: 40px 4%;
-    background-color: #050a30;
+    background-color: #194569;
 }
 
 header>.interface {
@@ -88,7 +88,7 @@ header nav.menu-desktop ul li {
     right: 0;
     width: 250px;
     height: 100%;
-    background-color: #050a30;
+    background-color: #194569;
     transform: translateX(100%); /* Inicialmente fora da tela */
     transition: transform 0.3s ease-in-out;
     z-index: 1000;
@@ -174,11 +174,12 @@ header nav.menu-desktop ul li {
 /* Container principal */
 main {
     display: flex;
-    flex-wrap: wrap;  
-    justify-content: space-between; 
-    gap: 20px; 
-    padding: 20px; 
-    height: calc(100vh - 100px); 
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    min-height: calc(100vh - 100px); /* Usa altura mínima ao invés de altura fixa */
+    flex: 1;
 }
 
 /* Container para alinhar as divs lado a lado */
@@ -284,7 +285,7 @@ footer .line-footer {
 }
 
 .borda {
-    border-top: 2px solid #050a30;
+    border-top: 2px solid #194569;
 }
 
 footer .line-footer p i {

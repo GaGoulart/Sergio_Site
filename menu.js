@@ -22,24 +22,6 @@ const btnMenu = document.getElementById("btn-menu");
 
 
 
-        //Imagens Cada Pagina
-        const images = ["imagens/123.jpg", "imagens/432.jpg", "imagens/Predio_exemplo.jpg"];
-    let currentIndex = 0;
-
-    function updateImage() {
-        const imgElement = document.getElementById("gallery-img");
-        imgElement.src = images[currentIndex];
-    }
-
-    document.getElementById("next").addEventListener("click", () => {
-        currentIndex = (currentIndex + 1) % images.length;
-        updateImage();
-    });
-
-    document.getElementById("prev").addEventListener("click", () => {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        updateImage();
-    });
 
 
     //Seção sobre cada imovel
@@ -62,35 +44,26 @@ const btnMenu = document.getElementById("btn-menu");
         });
     });
 
-    //Formulario
     document.addEventListener("DOMContentLoaded", function () {
-        const phoneInput = document.getElementById("phone");
-        const emailInput = document.getElementById("email");
-        const emailError = document.getElementById("email-error");
-
-        // Formatação do telefone
-        phoneInput.addEventListener("input", function (e) {
-            let value = e.target.value.replace(/\D/g, ""); // Remove tudo que não for número
-
-            if (value.length > 11) value = value.slice(0, 11); // Limita a 11 dígitos
-
-            // Aplica a máscara (XX) XXXXX-XXXX
-            if (value.length > 6) {
-                e.target.value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`;
-            } else if (value.length > 2) {
-                e.target.value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
-            } else if (value.length > 0) {
-                e.target.value = `(${value}`;
-            }
-        });
-
-        // Validação do e-mail
-        emailInput.addEventListener("input", function () {
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex para validar e-mail
-            if (!emailPattern.test(emailInput.value)) {
-                emailError.style.display = "block";
-            } else {
-                emailError.style.display = "none";
-            }
+        emailjs.init("5tKA6SuxQvdKu1p4A"); // Substitua pelo seu User ID do EmailJS
+    
+        document.getElementById("contact-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Evita o recarregamento da página
+    
+            const params = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                phone: document.getElementById("phone").value,
+                message: document.getElementById("message").value,
+            };
+    
+            emailjs.send("service_q7q3itf", "template_temh7vf", params)
+                .then(function (response) {
+                    alert("Mensagem enviada com sucesso!");
+                    document.getElementById("contact-form").reset(); // Limpa o formulário
+                }, function (error) {
+                    alert("Erro ao enviar a mensagem. Tente novamente.");
+                    console.log("Erro:", error);
+                });
         });
     });

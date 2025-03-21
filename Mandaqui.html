@@ -37,7 +37,7 @@
             </nav>
 
             <div class="btn-contato">
-                <a href="#">
+                <a href="index.html#form">
                     <button>Contato</button>
                 </a>
             </div><!--btn-contato-->
@@ -73,6 +73,26 @@
             </div>
         </section>
     </main>
+    <script>
+            //Imagens Cada Pagina
+            const images = ["imagens/123.jpg", "imagens/432.jpg", "imagens/Predio_exemplo.jpg"];
+    let currentIndex = 0;
+
+    function updateImage() {
+        const imgElement = document.getElementById("gallery-img");
+        imgElement.src = images[currentIndex];
+    }
+
+    document.getElementById("next").addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateImage();
+    });
+
+    document.getElementById("prev").addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateImage();
+    });
+    </script>
 
     <section class="property">
         <div class="property-info">

@@ -38,7 +38,7 @@ h2.titulo {
 }
 
 h2.titulo span {
-    color: #050a30;
+    color: #000;
 }
 
 button:hover,
@@ -50,7 +50,7 @@ form .btn-enviar input:hover {
 /* ESTILO DO CABEÇALHO */
 header {
     padding: 40px 4%;
-    background-color: #050a30;
+    background-color: #194569;
 }
 
 header>.interface {
@@ -87,7 +87,7 @@ header nav.menu-desktop ul li {
     right: 0;
     width: 250px;
     height: 100%;
-    background-color: #050a30;
+    background-color: #194569;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
     z-index: 1000;

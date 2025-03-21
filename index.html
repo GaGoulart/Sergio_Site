@@ -12,9 +12,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- FIM BOOTSTRAP ICONS -->
     <link rel="stylesheet" href="CSS/style.css">
-    <script src="menu.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="menu.js" defer></script>
 
     <link rel="icon" href="imagens/S.png" type="image/png" heigth="100px" width="100px">
     <title>Sergio Diniz Corretor</title>
@@ -37,7 +38,7 @@
             </nav>
 
             <div class="btn-contato">
-                <a href="#">
+                <a href="#form">
                     <button>Contato</button>
                 </a>
             </div><!--btn-contato-->
@@ -124,9 +125,7 @@
         <section class="sobre">
             <div class="interface">
                 <div class="flex">
-                    <div class="img-sobre">
-                        <img src="images/foto.png" alt="">
-                    </div><!--img-sobre-->
+                   
 
                     <div class="txt-sobre">
                         <h2>MUITO PRAZER, <span>SOU SERGIO DINIZ.</span></h2>
@@ -141,7 +140,7 @@
             </div><!--interface-->
         </section><!--sobre-->
 
-        <section class="formulario">
+        <section class="formulario" id="form">
             <div class="interface">
                 <h2 class="titulo">Mande uma <span>mensagem!</span></h2>
         
