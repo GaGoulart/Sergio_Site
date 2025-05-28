@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- FIM GOOGLE FONTES -->
+    <!-- BOOTSTRAP ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- FIM BOOTSTRAP ICONS -->
+    <link rel="stylesheet" href="Imoveis_CSS/mandaqui.css">
+    <script src="menu.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+    <link rel="icon" href="imagens/S.png" type="image/png" heigth="100px" width="100px">
+    <title>Sergio Diniz Corretor</title>
+</head>
+<body>
+    <header>
+        <div class="interface">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="imagens/Sergio Corretor.png" alt="Logo" height="180px">
+                </a>
+            </div><!--logo-->
+
+            <nav class="menu-desktop">
+                <ul>
+                    <li><a href="Comprar.html">Comprar</a></li>
+                    <li><a href="Alugar.html">Alugar</a></li>
+                    <li><a href="#">Sobre</a></li>
+                </ul>
+            </nav>
+
+            <div class="btn-contato">
+                <a href="index.html#form">
+                    <button>Contato</button>
+                </a>
+            </div><!--btn-contato-->
+
+            <div class="btn-abrir-menu" id="btn-menu">
+                <i class="bi bi-list"></i>
+            </div>
+
+            <div class="menu-mobile" id="menu-mobile">
+                <div class="btn-fechar" id="btn-fechar">
+                    <i class="bi bi-x-lg"></i>
+                </div>
+
+                <nav>
+                    <ul>
+                        <li><a href="Comprar.html">Comprar</a></li>
+                        <li><a href="Alugar.html">Alugar</a></li>
+                        <li><a href="#">Sobre</a></li>
+                    </ul>
+                </nav>
+            </div><!--menu-mobile-->
+            <div class="overlay-menu" id="overlay-menu"></div>
+        </div><!--interface-->
+    </header>
+
+    <main>
+        <section class="gallery">
+            <div class="gallery-container">
+                <button id="prev" class="nav-btn">&#10094;</button>
+                <img id="gallery-img" src="Zona_Sul/ML_Predio.webp" alt="Galeria de Imagens">
+               
+                <button id="next" class="nav-btn">&#10095;</button>
+            </div>
+        </section>
+    </main>
+    <script>
+            //Imagens Cada Pagina
+            const images = ["Zona_Sul/ML (1).webp", "Zona_Sul/ML (2).webp", "Zona_Sul/ML (3).webp", "Zona_Sul/ML (4).webp", "Zona_Sul/ML (5).webp", "Zona_Sul/ML (6).webp", "Zona_Sul/ML (7).webp", "Zona_Sul/ML (8).webp", "Zona_Sul/ML (9).webp", "Zona_Sul/ML (10).webp", "Zona_Sul/ML (11).webp", "Zona_Sul/ML (12).webp", "Zona_Sul/ML (13).webp", "Zona_Sul/ML (14).webp", "Zona_Sul/ML (15).webp"];
+    let currentIndex = 0;
+
+    function updateImage() {
+        const imgElement = document.getElementById("gallery-img");
+        imgElement.src = images[currentIndex];
+    }
+
+    document.getElementById("next").addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateImage();
+    });
+
+    document.getElementById("prev").addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateImage();
+    });
+    </script>
+
+    <section class="property">
+        <div class="property-info">
+            <h2>BROOKLIN</h2>
+    
+            <ul class="property-features">
+                <li><i class="bi bi-house-door"></i>84m² | 3 Dorms | 1 vaga</li>
+                <li><i class="bi bi-house-door"></i>118m² | 3 suítes | 2 vagass</li>
+                <li><i class="bi bi-house-door"></i>21m² a 25m² | Studios</li>
+                <li><i class="bi bi-house-door"></i>40m² - 50m² - 78m²|Loja</li>
+            </ul>
+            <button id="show-more">Ver Mais</button>
+            <div id="extra-info" class="hidden">
+                <p>EM OBRAS <strong>Entrega Jul/26</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="interface">
+            <div class="line-footer">
+                <div class="flex">
+                    <div class="logo-footer">
+                        <img src="imagens/S.png" height="200px" width="350px">
+                    </div><!--logo-footer-->
+                    <div class="btn-social">
+                        <a href="#"><button><i class="bi bi-instagram"></i></button></a>
+                        <a href="#"><button><i class="bi bi-youtube"></i></button></a>
+                        <a href="#"><button><i class="bi bi-linkedin"></i></button></a>
+                    </div><!--btn-social-->
+                </div>
+            </div><!--line-footer-->
+
+            <div class="line-footer borda">
+                <p><i class="bi bi-envelope-fill"></i> <a href="mailto:sergio@gmail.com">sergio@gmail.com</a></p>
+            </div><!--line-footer-->
+        </div><!--interface-->
+    </footer>
+
+
+</body>
+</html>
