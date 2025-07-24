@@ -234,6 +234,11 @@ section.especiliadades {
     text-align: center;
 }
 
+.especiliadades .especialidades-box a{
+    text-decoration: none;
+    color: #000;
+}
+
 /* ESTILO DO SOBRE */
 section.sobre {
     padding: 80px 4%;
